@@ -25,7 +25,7 @@ var pro = function (_config) {
         var isServer = false;
         for(var i in _config.serverConfig) {
             for(var n in _config.serverConfig[i].path) {
-                if(_config.serverConfig[i].path[n] == pathname && !isServer) {
+                if(req.headers.host == _config.serverConfig[i].doMain || _config.serverConfig[i].path[n] == pathname && !isServer) {
                     isServer = _config.serverConfig[i].port;
                 }
             }
